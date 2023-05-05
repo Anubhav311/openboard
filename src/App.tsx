@@ -33,12 +33,17 @@ export const App = () => {
     const resp = await fetch(url)
     const result = await resp.json()
     setContri(result)
-    console.log(result)
   }, [])
+
+  const personName = {
+    first: 'Bruce',
+    last: 'Wayne',
+  }
 
   return (
     <>
-      <h1>Heading</h1>
+      <Greet name="Anubhav" messageCount={10} isLoggedIn={false} />
+      <Person name={personName} />
       {contri.map((todo) => (
         <div key={todo.id}>
           <div>{todo.id}</div>
@@ -49,12 +54,35 @@ export const App = () => {
       ))}
     </>
   )
-  //   return (
-  //     <>
-  //       <h1>Edited React Typescript webpack starter templateeee</h1>
-  //       {/* <img src={IMAGE} width={200} height={200} />
-  //       <img src={LOGO} width={200} height={200} /> */}
-  //       <Counter />
-  //     </>
-  //   )
+}
+
+type GreetProps = {
+  name: string
+  messageCount: number
+  isLoggedIn: boolean
+}
+
+function Greet(props: GreetProps) {
+  return (
+    <h1>
+      {props.isLoggedIn
+        ? `Hello {props.name}. You have {props.messageCount} unread messages.`
+        : 'Welcome Guest'}
+    </h1>
+  )
+}
+
+type PersonProps = {
+  name: {
+    first: string
+    last: string
+  }
+}
+
+function Person(props: PersonProps) {
+  return (
+    <div>
+      {props.name.first} {props.name.last}
+    </div>
+  )
 }
