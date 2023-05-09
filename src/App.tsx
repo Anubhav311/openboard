@@ -39,52 +39,41 @@ type MembersListProps = {
 
 let membersList = [
   {
-    name: 'Vicky',
-    attendance: 4,
-    totalProblems: 5,
-    solvedProblems: 2,
+    name: 'Sagar',
+    attendance: 2,
+    totalProblems: 10,
+    solvedProblems: 4,
   },
   {
     name: 'Vikash',
-    attendance: 4,
-    totalProblems: 5,
+    attendance: 2,
+    totalProblems: 10,
+    solvedProblems: 5,
+  },
+  {
+    name: 'Harsh',
+    attendance: 2,
+    totalProblems: 10,
+    solvedProblems: 6,
+  },
+  {
+    name: 'Sumit',
+    attendance: 2,
+    totalProblems: 10,
     solvedProblems: 1,
   },
-  // {
-  //   name: 'Vikash',
-  //   prMerge: 6,
-  //   typeingSpeed: 7,
-  //   keyboardOrMouse: 'Low',
-  //   leetcodeScore: 0,
-  // },
-  // {
-  //   name: 'Harsh',
-  //   prMerge: 7,
-  //   typeingSpeed: 28,
-  //   keyboardOrMouse: 'Low',
-  //   leetcodeScore: 0,
-  // },
-  // {
-  //   name: 'Saransh',
-  //   prMerge: 0,
-  //   typeingSpeed: 40,
-  //   keyboardOrMouse: 'Low',
-  //   leetcodeScore: 0,
-  // },
-  // {
-  //   name: 'Asif',
-  //   prMerge: 4,
-  //   typeingSpeed: 0,
-  //   keyboardOrMouse: 'Low',
-  //   leetcodeScore: 0,
-  // },
-  // {
-  //   name: 'Arpit',
-  //   prMerge: 0,
-  //   typeingSpeed: 73,
-  //   keyboardOrMouse: 'Low',
-  //   leetcodeScore: 0,
-  // },
+  {
+    name: 'Ramgopal',
+    attendance: 2,
+    totalProblems: 10,
+    solvedProblems: 5,
+  },
+  {
+    name: 'Punjika',
+    attendance: 2,
+    totalProblems: 10,
+    solvedProblems: 2,
+  },
 ]
 
 membersList = membersList.sort((a: any, b: any) =>
