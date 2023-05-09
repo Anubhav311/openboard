@@ -6,16 +6,19 @@
   "scripts": {
     "start": "webpack serve --config webpack.config.js --open",
     "lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
-    "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
+    "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
+    "build": "webpack --config webpack.config.js --mode production"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "copy-webpack-plugin": "^11.0.0",
+    "formik": "^2.2.9",
     "react": "latest",
     "react-dom": "latest",
-    "recoil": "^0.7.7"
+    "recoil": "^0.7.7",
+    "yup": "^1.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.21.4",

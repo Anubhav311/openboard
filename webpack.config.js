@@ -36,7 +36,7 @@ module.exports = {
     ],
   },
   output: {
-    path: path.resolve(__dirname, '..', './build'),
+    path: path.resolve(__dirname, './build'),
     filename: '[name].js',
   },
   plugins: [
@@ -48,8 +48,8 @@ module.exports = {
     }),
     // new copyPlugin({
     //   patterns: [
-        // { from: path.resolve('src/react.png'), to: path.resolve('build') },
-        // { from: path.resolve(''), to: path.resolve('build') },
+    // { from: path.resolve('src/react.png'), to: path.resolve('build') },
+    // { from: path.resolve(''), to: path.resolve('build') },
     //   ],
     // }),
   ],
