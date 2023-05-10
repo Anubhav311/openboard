@@ -103,7 +103,7 @@ export const App = () => {
                 <div
                   style={{
                     padding: '10px',
-                    margin: '10px 0 10px 10px',
+                    margin: '10px 0 10px 0',
                     background: '#FDEEEF',
                     width: '150px',
                     borderRadius: '30px 0 0 30px',
@@ -118,7 +118,7 @@ export const App = () => {
                 <div
                   style={{
                     padding: '10px',
-                    margin: '10px 10px 10px 0',
+                    margin: '10px 0 10px 0',
                     background: 'white',
                     width: '150px',
                     borderRadius: '0 30px 30px 0',
