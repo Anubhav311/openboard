@@ -90,37 +90,45 @@ export const App = () => {
       <div className="container">
         <main className="main">
           <div style={{ width: '70%' }}>
-            <h3>LeaderBoard</h3>
-            {/* <FontAwesomeIcon icon={faEnvelope} style={{ color: '#ffd700' }} /> */}
-            <div style={{ display: 'flex', justifyContent: 'end' }}>
-              <div
-                style={{
-                  padding: '10px',
-                  margin: '10px 0 10px 10px',
-                  background: '#FDEEEF',
-                  width: '150px',
-                  borderRadius: '30px 0 0 30px',
-                  textAlign: 'center',
-                  color: '#F47079',
-                  fontWeight: 'bold',
-                  cursor: 'pointer',
-                }}
-              >
-                Week
-              </div>
-              <div
-                style={{
-                  padding: '10px',
-                  margin: '10px 10px 10px 0',
-                  background: 'white',
-                  width: '150px',
-                  borderRadius: '0 30px 30px 0',
-                  textAlign: 'center',
-                  color: '#061157',
-                  cursor: 'pointer',
-                }}
-              >
-                Month
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              <h3 style={{ color: '#F1734A' }}>
+                <FontAwesomeIcon
+                  icon={faTrophy}
+                  size="lg"
+                  style={{ color: '#f1734a', marginRight: '10px' }}
+                />
+                OPENBOARD
+              </h3>
+              <div style={{ display: 'flex', justifyContent: 'end' }}>
+                <div
+                  style={{
+                    padding: '10px',
+                    margin: '10px 0 10px 10px',
+                    background: '#FDEEEF',
+                    width: '150px',
+                    borderRadius: '30px 0 0 30px',
+                    textAlign: 'center',
+                    color: '#F47079',
+                    fontWeight: 'bold',
+                    cursor: 'pointer',
+                  }}
+                >
+                  Week
+                </div>
+                <div
+                  style={{
+                    padding: '10px',
+                    margin: '10px 10px 10px 0',
+                    background: 'white',
+                    width: '150px',
+                    borderRadius: '0 30px 30px 0',
+                    textAlign: 'center',
+                    color: '#061157',
+                    cursor: 'pointer',
+                  }}
+                >
+                  Month
+                </div>
               </div>
             </div>
             <div className={'table-container'}>
