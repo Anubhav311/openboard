@@ -127,3 +127,13 @@
     filter: invert(1);
   }
 }
+
+.rand-holders {
+  color: #01ffb2;
+}
+
+.table-container {
+  border-radius: 10px;
+  background-color: #f7fafe;
+  padding: 20px 10px;
+}

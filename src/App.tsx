@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import './styles/global.css'
 import './styles/home.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrophy, faCircleUser } from '@fortawesome/free-solid-svg-icons'
 // import './styles.css'
 // import IMAGE from './react.png'
 // import LOGO from './logo.svg'
@@ -87,19 +89,51 @@ export const App = () => {
     <>
       <div className="container">
         <main className="main">
-          <div>
-            <div>
-              <h3>DSA Mastery Leader Board</h3>
+          <div style={{ width: '70%' }}>
+            <h3>LeaderBoard</h3>
+            {/* <FontAwesomeIcon icon={faEnvelope} style={{ color: '#ffd700' }} /> */}
+            <div style={{ display: 'flex', justifyContent: 'end' }}>
+              <div
+                style={{
+                  padding: '10px',
+                  margin: '10px 0 10px 10px',
+                  background: '#FDEEEF',
+                  width: '150px',
+                  borderRadius: '30px 0 0 30px',
+                  textAlign: 'center',
+                  color: '#F47079',
+                  fontWeight: 'bold',
+                  cursor: 'pointer',
+                }}
+              >
+                Week
+              </div>
+              <div
+                style={{
+                  padding: '10px',
+                  margin: '10px 10px 10px 0',
+                  background: 'white',
+                  width: '150px',
+                  borderRadius: '0 30px 30px 0',
+                  textAlign: 'center',
+                  color: '#061157',
+                  cursor: 'pointer',
+                }}
+              >
+                Month
+              </div>
             </div>
-            <div>
+            <div className={'table-container'}>
               <table>
                 <thead>
                   <tr>
-                    <th>Rank</th>
-                    <th>Name</th>
-                    <th>Attendance</th>
-                    <th>Solved Problems</th>
-                    <th>Total Problems</th>
+                    <th style={{ color: '#8CBCBE', textAlign: 'left' }}>
+                      Name
+                    </th>
+                    <th style={{ color: '#8CBCBE' }}>Rank</th>
+                    <th style={{ color: '#8CBCBE' }}>Attendance</th>
+                    <th style={{ color: '#8CBCBE' }}>Solved Problems</th>
+                    <th style={{ color: '#8CBCBE' }}>Total Problems</th>
                   </tr>
                 </thead>
                 <TableBody members={members} />
@@ -116,7 +150,22 @@ function TableBody(props: MembersListProps) {
   return (
     <tbody>
       {props.members.map((member, i) => (
-        <tr key={i}>
+        <tr key={i} className={i < 3 ? 'rank-holders' : ''}>
+          <td
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+            }}
+          >
+            <div>
+              <FontAwesomeIcon
+                icon={faCircleUser}
+                size="2xl"
+                style={{ color: '8198c1', marginRight: '10px' }}
+              />
+            </div>
+            {member.name}
+          </td>
           <td
             style={{
               textAlign: 'center',
@@ -124,14 +173,34 @@ function TableBody(props: MembersListProps) {
               fontWeight: 'bold',
             }}
           >
-            {i + 1}
+            {i == 0 ? (
+              <FontAwesomeIcon
+                bounce
+                icon={faTrophy}
+                style={{ color: '#ffd700' }}
+                size="2xl"
+              />
+            ) : i == 1 ? (
+              <FontAwesomeIcon
+                icon={faTrophy}
+                style={{ color: '#c0c0c0' }}
+                size="xl"
+              />
+            ) : i == 2 ? (
+              <FontAwesomeIcon
+                icon={faTrophy}
+                style={{ color: '#964b00' }}
+                size="xl"
+              />
+            ) : (
+              i + 1
+            )}
           </td>
-          <td>{member.name}</td>
           <td
             style={{
               textAlign: 'center',
-              fontSize: '18px',
-              fontWeight: 'bold',
+              // fontSize: '18px',
+              // fontWeight: 'bold',
             }}
           >
             {member.attendance}
