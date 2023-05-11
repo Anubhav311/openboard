@@ -42,39 +42,39 @@ type MembersListProps = {
 let membersList = [
   {
     name: 'Sagar',
-    attendance: 2,
+    attendance: 100,
     totalProblems: 10,
-    solvedProblems: 4,
+    solvedProblems: 0,
   },
   {
     name: 'Vikash',
-    attendance: 2,
+    attendance: 100,
     totalProblems: 10,
-    solvedProblems: 5,
+    solvedProblems: 7,
   },
   {
     name: 'Harsh',
-    attendance: 2,
+    attendance: 100,
     totalProblems: 10,
-    solvedProblems: 6,
+    solvedProblems: 8,
   },
   {
     name: 'Sumit',
-    attendance: 2,
+    attendance: 100,
     totalProblems: 10,
-    solvedProblems: 1,
+    solvedProblems: 0,
   },
   {
     name: 'Ramgopal',
-    attendance: 2,
+    attendance: 100,
     totalProblems: 10,
-    solvedProblems: 5,
+    solvedProblems: 0,
   },
   {
     name: 'Punjika',
-    attendance: 2,
+    attendance: 100,
     totalProblems: 10,
-    solvedProblems: 2,
+    solvedProblems: 1,
   },
 ]
 
