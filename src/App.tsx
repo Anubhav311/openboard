@@ -56,7 +56,7 @@ let membersList = [
     name: 'Harsh',
     attendance: 100,
     totalProblems: 10,
-    solvedProblems: 8,
+    solvedProblems: 10,
   },
   {
     name: 'Sumit',
