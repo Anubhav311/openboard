@@ -39,42 +39,74 @@ type MembersListProps = {
   }[]
 }
 
+const totalProblems = 14
+
 let membersList = [
   {
     name: 'Sagar',
     attendance: 50,
-    totalProblems: 14,
+    totalProblems: totalProblems,
     solvedProblems: 0,
   },
   {
     name: 'Vikash',
     attendance: 100,
-    totalProblems: 14,
+    totalProblems: totalProblems,
     solvedProblems: 11,
   },
   {
     name: 'Harsh',
     attendance: 100,
-    totalProblems: 14,
-    solvedProblems: 10,
+    totalProblems: totalProblems,
+    solvedProblems: 12,
   },
   {
     name: 'Sumit',
     attendance: 100,
-    totalProblems: 14,
+    totalProblems: totalProblems,
     solvedProblems: 0,
   },
   {
     name: 'Ramgopal',
     attendance: 75,
-    totalProblems: 14,
-    solvedProblems: 0,
+    totalProblems: totalProblems,
+    solvedProblems: 1,
   },
   {
     name: 'Punjika',
     attendance: 100,
-    totalProblems: 14,
-    solvedProblems: 1,
+    totalProblems: totalProblems,
+    solvedProblems: 2,
+  },
+  {
+    name: 'Manish',
+    attendance: 100,
+    totalProblems: totalProblems,
+    solvedProblems: 0,
+  },
+  {
+    name: 'Dependra',
+    attendance: 100,
+    totalProblems: totalProblems,
+    solvedProblems: 0,
+  },
+  {
+    name: 'Nagendra',
+    attendance: 100,
+    totalProblems: totalProblems,
+    solvedProblems: 0,
+  },
+  {
+    name: 'Prakash',
+    attendance: 100,
+    totalProblems: totalProblems,
+    solvedProblems: 0,
+  },
+  {
+    name: 'Rujman',
+    attendance: 100,
+    totalProblems: totalProblems,
+    solvedProblems: 0,
   },
 ]
 
