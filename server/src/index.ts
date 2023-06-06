@@ -40,7 +40,7 @@ const app: Express = express();
 // }
 
 app.get("/", (req: Request, res: Response) => {
-  res.send({ response: "Hello World" });
+  res.send({ response: "Hello World", test: process.env.TEST_VARIABLE });
 });
 
 const PORT = process.env.PORT;
