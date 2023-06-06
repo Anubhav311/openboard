@@ -3,6 +3,7 @@ import './styles/global.css'
 import './styles/home.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrophy, faCircleUser } from '@fortawesome/free-solid-svg-icons'
+import { Route, Routes } from 'react-router-dom'
 
 // Vakil search, chennai, Mr. Praveen
 
@@ -118,6 +119,17 @@ membersList = membersList.sort((a: any, b: any) =>
 )
 
 export const App = () => {
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<LeaderBoard />} />
+        <Route path="/login" element={<LeaderBoard />} />
+      </Routes>
+    </>
+  )
+}
+
+const LeaderBoard = () => {
   const [members] = useState(membersList)
 
   return (
