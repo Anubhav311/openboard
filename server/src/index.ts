@@ -1,4 +1,4 @@
-const express = require("express");
+import express, { Express, Request, Response } from "express";
 // const mongoose = require("mongoose");
 // const cookieSession = require("cookie-session");
 // const passport = require("passport");
@@ -15,7 +15,7 @@ const express = require("express");
 //   useUnifiedTopology: true,
 // });
 
-const app = express();
+const app: Express = express();
 
 // app.use(bodyParser.json());
 // app.use(
@@ -39,7 +39,7 @@ const app = express();
 //   });
 // }
 
-app.get("/", (req, res) => {
+app.get("/", (req: Request, res: Response) => {
   res.send({ response: "Hello World" });
 });
 
