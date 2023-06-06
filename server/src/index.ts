@@ -1,4 +1,10 @@
+// const express = require("express");
 import express, { Express, Request, Response } from "express";
+// require("dotenv").config();
+import dotenv from "dotenv";
+
+dotenv.config();
+
 // const mongoose = require("mongoose");
 // const cookieSession = require("cookie-session");
 // const passport = require("passport");
@@ -16,6 +22,7 @@ import express, { Express, Request, Response } from "express";
 // });
 
 const app: Express = express();
+// const app = express();
 
 // app.use(bodyParser.json());
 // app.use(
@@ -39,6 +46,7 @@ const app: Express = express();
 //   });
 // }
 
+// app.get("/", (req, res) => {
 app.get("/", (req: Request, res: Response) => {
   res.send({ response: "Hello World", test: process.env.TEST_VARIABLE });
 });

@@ -3,7 +3,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+// const express = require("express");
 const express_1 = __importDefault(require("express"));
+// require("dotenv").config();
+const dotenv_1 = __importDefault(require("dotenv"));
+dotenv_1.default.config();
 // const mongoose = require("mongoose");
 // const cookieSession = require("cookie-session");
 // const passport = require("passport");
@@ -18,6 +22,7 @@ const express_1 = __importDefault(require("express"));
 //   useUnifiedTopology: true,
 // });
 const app = (0, express_1.default)();
+// const app = express();
 // app.use(bodyParser.json());
 // app.use(
 //   cookieSession({
@@ -36,6 +41,7 @@ const app = (0, express_1.default)();
 //     res.sendFile(path.resolve("client", "build", "index.html"));
 //   });
 // }
+// app.get("/", (req, res) => {
 app.get("/", (req, res) => {
     res.send({ response: "Hello World", test: process.env.TEST_VARIABLE });
 });
