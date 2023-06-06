@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './styles/global.css'
 import './styles/home.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -120,6 +120,12 @@ membersList = membersList.sort((a: any, b: any) =>
 )
 
 export const App = () => {
+  useEffect(() => {
+    const queryString = window.location.search
+    const urlParams = new URLSearchParams(queryString)
+    const codeParam = urlParams.get('code')
+    console.log(codeParam)
+  }, [])
   return (
     <>
       {/* <Link to="/">Home</Link>
