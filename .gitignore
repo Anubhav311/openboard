@@ -1,6 +1,6 @@
 node_modules
 .yarn
-build
+# build
 .DS_Store
 dev.js
 keys.js
