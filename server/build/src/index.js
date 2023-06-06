@@ -37,7 +37,7 @@ const app = (0, express_1.default)();
 //   });
 // }
 app.get("/", (req, res) => {
-    res.send({ response: "Hello World" });
+    res.send({ response: "Hello World", test: process.env.TEST_VARIABLE });
 });
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
