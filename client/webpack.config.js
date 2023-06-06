@@ -1,5 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const Dotenv = require('dotenv-webpack')
 // const copyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
@@ -52,7 +53,12 @@ module.exports = {
     // { from: path.resolve(''), to: path.resolve('build') },
     //   ],
     // }),
+    new Dotenv(),
   ],
   stats: 'errors-only',
+  devServer: {
+    // this helps you enter different urls in url bar of the browser
+    historyApiFallback: true,
+  },
   // watch: true,
 }
