@@ -1,15 +1,17 @@
 {
   "version": 2,
+  "buildCommand": "yarn build",
   "builds": [
     {
-      "src": "./index.js",
-      "use": "@vercel/node"
+      "src": "./build/index.js",
+      "use": "@vercel/node",
+      "config": { "includeFiles": ["build/**"] }
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/"
+      "dest": "build/index.js"
     }
   ]
 }
