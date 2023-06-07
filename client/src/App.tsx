@@ -125,7 +125,6 @@ export const App = () => {
     const queryString = window.location.search
     const urlParams = new URLSearchParams(queryString)
     const codeParam = urlParams.get('code')
-    console.log('code param: ', codeParam)
 
     async function getAccessToken() {
       await fetch('http://localhost:5000/getAccessToken?code=' + codeParam, {
@@ -135,7 +134,6 @@ export const App = () => {
           return response.json()
         })
         .then((data) => {
-          console.log(data)
           if (data.access_token) {
             localStorage.setItem('accessToken', data.access_token)
             setRerender(!rerender)
