@@ -3,27 +3,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// const express = require("express");
 const express_1 = __importDefault(require("express"));
-// require("dotenv").config();
 const dotenv_1 = __importDefault(require("dotenv"));
+const body_parser_1 = __importDefault(require("body-parser"));
+const node_fetch_1 = __importDefault(require("node-fetch"));
 dotenv_1.default.config();
-// const mongoose = require("mongoose");
-// const cookieSession = require("cookie-session");
-// const passport = require("passport");
-// const bodyParser = require("body-parser");
-// const keys = require("./config/keys");
-// require("./models/User");
-// require("./models/Blog");
-// require("./services/passport");
-// mongoose.Promise = global.Promise;
-// mongoose.connect(keys.mongoURI, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// });
 const app = (0, express_1.default)();
 // const app = express();
-// app.use(bodyParser.json());
+app.use(body_parser_1.default.json());
 // app.use(
 //   cookieSession({
 //     maxAge: 30 * 24 * 60 * 60 * 1000,
@@ -32,15 +19,45 @@ const app = (0, express_1.default)();
 // );
 // app.use(passport.initialize());
 // app.use(passport.session());
-// require("./routes/authRoutes")(app);
-// require("./routes/blogRoutes")(app);
 // if (["production"].includes(process.env.NODE_ENV)) {
 //   app.use(express.static("client/build"));
-//   const path = require("path");
 //   app.get("*", (req, res) => {
 //     res.sendFile(path.resolve("client", "build", "index.html"));
 //   });
 // }
+const CLIENT_ID = process.env.CLIENT_ID;
+const CLIENT_SECRET = process.env.CLIENT_SECRET;
+app.get("/getAccessToken", async (req, res) => {
+    console.log(req.query.code);
+    const params = "?client_id=" +
+        CLIENT_ID +
+        "&client_secret=" +
+        CLIENT_SECRET +
+        "&code=" +
+        req.query.code;
+    const response = await (0, node_fetch_1.default)("https://github.com/login/oauth/access_token" + params, {
+        method: "POST",
+        headers: {
+            Accept: "application/json",
+        },
+    });
+    const data = response.json();
+    console.log(data);
+    res.json(data);
+});
+// getUserData
+app.get("/getUserData", async (req, res) => {
+    req.get("Authorization");
+    const response = await (0, node_fetch_1.default)("https://api.github.com/user", {
+        method: "GET",
+        headers: {
+            Authorization: "Bearer" + req.get("Authorization"), // Bearer Access Token
+        },
+    });
+    const data = response.json();
+    console.log(data);
+    res.json(data);
+});
 // app.get("/", (req, res) => {
 app.get("/", (req, res) => {
     res.send({ response: "Hello World", test: process.env.TEST_VARIABLE });

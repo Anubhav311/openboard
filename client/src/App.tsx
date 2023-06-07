@@ -120,12 +120,34 @@ membersList = membersList.sort((a: any, b: any) =>
 )
 
 export const App = () => {
+  const [rerender, setRerender] = useState(false)
   useEffect(() => {
     const queryString = window.location.search
     const urlParams = new URLSearchParams(queryString)
     const codeParam = urlParams.get('code')
-    console.log(codeParam)
+    console.log('code param: ', codeParam)
+
+    async function getAccessToken() {
+      await fetch('http://localhost:5000/getAccessToken?code=' + codeParam, {
+        method: 'GET',
+      })
+        .then((response) => {
+          return response.json()
+        })
+        .then((data) => {
+          console.log(data)
+          if (data.access_token) {
+            localStorage.setItem('accessToken', data.access_token)
+            setRerender(!rerender)
+          }
+        })
+    }
+
+    if (codeParam && localStorage.getItem('accessToken') == null) {
+      getAccessToken()
+    }
   }, [])
+
   return (
     <>
       {/* <Link to="/">Home</Link>
@@ -141,10 +163,38 @@ export const App = () => {
 const LeaderBoard = () => {
   const [members] = useState(membersList)
 
+  async function getUserData() {
+    await fetch('http://localhost:5000/getUserData', {
+      method: 'GET',
+      headers: {
+        Authorization: 'Bearer ' + `${localStorage.getItem('accessToken')}`, //Bearer Access Token
+      },
+    })
+      .then((response) => {
+        return response.json()
+      })
+      .then((data) => {
+        console.log(data)
+      })
+  }
+
   return (
     <>
       <div className="container">
         <main className="main">
+          {localStorage.getItem('accessToken') ? (
+            <div>
+              <h3>we have access token</h3>
+              {localStorage.getItem('accessToken')}
+
+              <h4>Get user data from github API</h4>
+              <button onClick={getUserData}>Get user data</button>
+            </div>
+          ) : (
+            <div>
+              <h3>user isnot logged in</h3>
+            </div>
+          )}
           <div style={{ width: '70%' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <h3 style={{ color: '#F1734A' }}>
