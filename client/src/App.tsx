@@ -121,15 +121,19 @@ membersList = membersList.sort((a: any, b: any) =>
 
 export const App = () => {
   const [rerender, setRerender] = useState(false)
+
   useEffect(() => {
     const queryString = window.location.search
     const urlParams = new URLSearchParams(queryString)
     const codeParam = urlParams.get('code')
 
     async function getAccessToken() {
-      await fetch('http://localhost:5000/getAccessToken?code=' + codeParam, {
-        method: 'GET',
-      })
+      await fetch(
+        process.env.BACKEND_URL + '/getAccessToken?code=' + codeParam,
+        {
+          method: 'GET',
+        }
+      )
         .then((response) => {
           return response.json()
         })
@@ -162,7 +166,7 @@ const LeaderBoard = () => {
   const [members] = useState(membersList)
 
   async function getUserData() {
-    await fetch('http://localhost:5000/getUserData', {
+    await fetch(process.env.BACKEND_URL + '/getUserData', {
       method: 'GET',
       headers: {
         Authorization: 'Bearer ' + `${localStorage.getItem('accessToken')}`, //Bearer Access Token
