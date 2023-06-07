@@ -121,7 +121,7 @@ membersList = membersList.sort((a: any, b: any) =>
 
 export const App = () => {
   const [rerender, setRerender] = useState(false)
-  console.log(process.env.BACKEND_URL)
+  console.log('this should show now: ', process.env.BACKEND_URL)
   useEffect(() => {
     const queryString = window.location.search
     const urlParams = new URLSearchParams(queryString)

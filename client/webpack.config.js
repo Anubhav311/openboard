@@ -53,7 +53,9 @@ module.exports = {
     // { from: path.resolve(''), to: path.resolve('build') },
     //   ],
     // }),
-    new Dotenv(),
+    new Dotenv({
+      systemvars: true, // without this, it won't pick up env variables sent on netlify
+    }),
   ],
   stats: 'errors-only',
   devServer: {
