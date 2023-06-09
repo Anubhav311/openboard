@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrophy, faCircleUser } from '@fortawesome/free-solid-svg-icons'
 import { Routes, Route } from 'react-router-dom'
 import { Login } from './components/auth/Login'
+import { Navbar } from './components/Navbar'
+import { Account } from './components/Account'
 
 // Vakil search, chennai, Mr. Praveen
 
@@ -121,7 +123,7 @@ membersList = membersList.sort((a: any, b: any) =>
 
 export const App = () => {
   const [rerender, setRerender] = useState(false)
-  console.log('this should show now: ', process.env.BACKEND_URL)
+
   useEffect(() => {
     const queryString = window.location.search
     const urlParams = new URLSearchParams(queryString)
@@ -157,6 +159,7 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<LeaderBoard />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/account" element={<Account />} />
       </Routes>
     </>
   )
@@ -183,6 +186,7 @@ const LeaderBoard = () => {
   return (
     <>
       <div className="container">
+        <Navbar />
         <main className="main">
           {localStorage.getItem('accessToken') ? (
             <div>

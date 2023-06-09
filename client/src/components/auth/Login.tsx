@@ -143,10 +143,10 @@
 // }
 
 // export default WithMaterialUI
-const CLIENT_ID = process.env.CLIENT_ID
 
 export const Login = () => {
-  console.log('hiting it boyssss', CLIENT_ID)
+  const CLIENT_ID = process.env.CLIENT_ID
+
   function loginWithGithub() {
     window.location.assign(
       'https://github.com/login/oauth/authorize?client_id=' + CLIENT_ID
