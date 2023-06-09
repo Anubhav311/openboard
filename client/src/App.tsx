@@ -168,39 +168,11 @@ export const App = () => {
 const LeaderBoard = () => {
   const [members] = useState(membersList)
 
-  async function getUserData() {
-    await fetch(process.env.BACKEND_URL + '/getUserData', {
-      method: 'GET',
-      headers: {
-        Authorization: 'Bearer ' + `${localStorage.getItem('accessToken')}`, //Bearer Access Token
-      },
-    })
-      .then((response) => {
-        return response.json()
-      })
-      .then((data) => {
-        console.log(data)
-      })
-  }
-
   return (
     <>
       <div className="container">
         <Navbar />
         <main className="main">
-          {localStorage.getItem('accessToken') ? (
-            <div>
-              <h3>we have access token</h3>
-              {localStorage.getItem('accessToken')}
-
-              <h4>Get user data from github API</h4>
-              <button onClick={getUserData}>Get user data</button>
-            </div>
-          ) : (
-            <div>
-              <h3>user isnot logged in</h3>
-            </div>
-          )}
           <div style={{ width: '70%' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <h3 style={{ color: '#F1734A' }}>
