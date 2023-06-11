@@ -1,4 +1,4 @@
-import express, { Express, Request, Response, response } from "express";
+import express, { Express, Request, Response } from "express";
 import bodyParser from "body-parser";
 import axios from "axios";
 import cors from "cors";

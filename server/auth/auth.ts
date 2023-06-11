@@ -1,8 +1,8 @@
-import axios, { AxiosResponse } from "axios";
+import axios, { AxiosResponse, AxiosRequestConfig } from "axios";
 import { Token } from "../models/Token";
 
-export const getAccessToken = async (params: string) => {
-  const options = {
+export const getAccessToken = async (params: string): Promise<Token> => {
+  const options: AxiosRequestConfig = {
     method: "POST",
     headers: {
       Accept: "application/json",

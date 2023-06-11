@@ -23,9 +23,10 @@
     "passport-google-oauth20": "^2.0.0"
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
     "@types/mongoose": "^5.11.97",
-    "@types/cors": "^2.8.13",
     "@types/node": "^20.2.5",
     "nodemon": "^2.0.22",
     "ts-node": "^10.9.1",
