@@ -1,16 +1,6 @@
 import { atom } from 'recoil'
-
+import { User } from '../types/interfaces'
 export const userAtom = atom({
-  default: {
-    avatar: '',
-    name: '',
-    username: '',
-    followers: 0,
-    following: 0,
-    twitter: '',
-    github: '',
-    linkedin: '',
-    youtube: '',
-  },
+  default: {} as User,
   key: 'user',
 })
