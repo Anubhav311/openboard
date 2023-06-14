@@ -15,7 +15,18 @@ const getGithubUser = async (token) => {
         url: "https://api.github.com/user",
     };
     const data = await (0, axios_1.default)(options);
-    const payload = { ...data.data };
-    return payload;
+    const { name, avatar_url, login, followers, following, twitter_username, html_url, linkedin_username, youtube_username, } = data.data;
+    const user = {
+        name,
+        avatar: avatar_url,
+        username: login,
+        followers,
+        following,
+        twitter: twitter_username,
+        github: html_url,
+        linkedin: linkedin_username,
+        youtube: youtube_username,
+    };
+    return user;
 };
 exports.getGithubUser = getGithubUser;

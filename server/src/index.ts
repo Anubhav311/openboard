@@ -3,8 +3,10 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import authRouter from "./routes/authRoutes";
 import githubUserRouter from "./routes/githubUserRouter";
+import connectToDatabase from "./databaseConfig";
 
 const app: Express = express();
+connectToDatabase();
 
 app.use(cors());
 app.use(bodyParser.json());
