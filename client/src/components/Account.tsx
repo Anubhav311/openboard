@@ -32,15 +32,7 @@ export function Account() {
       .then((data) => {
         console.log(data)
         setUser({
-          name: data.name,
-          avatar: data.avatar_url,
-          username: data.login,
-          followers: data.followers,
-          following: data.following,
-          twitter: data.twitter_username,
-          github: data.html_url,
-          linkedin: data.linkedin_username,
-          youtube: data.youtube_username,
+          ...data,
         })
       })
   }
