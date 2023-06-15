@@ -3,6 +3,7 @@ import { Token } from "../models/Token";
 import { getGithubUser } from "../githubApi/ghUserDb";
 import { UserModel } from "../githubApi/ghUserDb";
 import dotenv from "dotenv";
+import { ErrorHandler } from "../utils/errorHandler";
 
 dotenv.config();
 
