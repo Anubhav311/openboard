@@ -19,9 +19,9 @@ export const getGithubUserController = async (
     const user = await getGithubUser(token);
     const { username }: { username: string } = user;
     const userInstance = new UserModel();
-    const departmentExists = await userInstance.checkUserExists(username);
+    const userExists = await userInstance.checkUserExists(username);
 
-    if (!departmentExists) {
+    if (!userExists) {
       await userInstance.createUser(user);
       console.log("new user created", username);
     }

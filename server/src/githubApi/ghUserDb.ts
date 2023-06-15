@@ -5,13 +5,13 @@ import { User } from "../types/User";
 interface UserDocument extends User, Document {}
 
 const userSchema = new Schema<UserDocument>({
-  name: { type: String, required: true },
-  avatar: { type: String, required: true },
-  username: { type: String, required: true },
-  followers: { type: Number, required: true },
-  following: { type: Number, required: true },
+  name: { type: String, required: [true, "Name not found"] },
+  avatar: { type: String, required: [true, "Name not found"] },
+  username: { type: String, required: [true, "Name not found"], unique: true },
+  followers: { type: Number, required: [true, "Name not found"] },
+  following: { type: Number, required: [true, "Name not found"] },
   twitter: { type: String, required: false },
-  github: { type: String, required: true },
+  github: { type: String, required: [true, "Name not found"] },
   linkedin: { type: String, required: false },
   youtube: { type: String, required: false },
 });
