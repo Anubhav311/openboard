@@ -1,5 +1,42 @@
 import axios, { AxiosResponse, AxiosRequestConfig } from "axios";
+import { Schema, Document, model, Model } from "mongoose";
 import { User } from "../types/User";
+
+interface UserDocument extends User, Document {}
+
+const userSchema = new Schema<UserDocument>({
+  name: { type: String, required: true },
+  avatar: { type: String, required: true },
+  username: { type: String, required: true },
+  followers: { type: Number, required: true },
+  following: { type: Number, required: true },
+  twitter: { type: String, required: false },
+  github: { type: String, required: true },
+  linkedin: { type: String, required: false },
+  youtube: { type: String, required: false },
+});
+
+export class UserModel {
+  private model: Model<UserDocument>;
+
+  constructor() {
+    this.model = model<UserDocument>("User", userSchema);
+  }
+
+  async createUser(user: User): Promise<UserDocument> {
+    const createdUser = new this.model(user);
+    return createdUser.save();
+  }
+
+  async getUserById(id: string): Promise<UserDocument | null> {
+    return this.model.findById(id).exec();
+  }
+
+  async checkUserExists(param: string): Promise<boolean> {
+    const userExists = await this.model.exists({ username: param });
+    return !!userExists; // Return true if user exists, false otherwise
+  }
+}
 
 // getUserData
 export const getGithubUser = async (token: string): Promise<any> => {
