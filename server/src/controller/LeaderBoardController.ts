@@ -1,11 +1,7 @@
 import { NextFunction, Request, Response } from "express";
-import { Token } from "../models/Token";
-import { getGithubUser } from "../githubApi/ghUserDb";
-import { UserModel } from "../githubApi/ghUserDb";
 import dotenv from "dotenv";
 import { ErrorHandler } from "../utils/errorHandler";
 import { LeaderBoard } from "../models/LeaderBoard";
-import { MongoError, MongoServerError } from "mongodb";
 
 dotenv.config();
 

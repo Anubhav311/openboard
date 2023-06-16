@@ -1,6 +1,4 @@
 import { NextFunction, Request, Response } from "express";
-// import { MongoError, MongoServerError } from "mongodb";
-import { ErrorHandler } from "../utils/errorHandler";
 
 const errorHandler = (
   err: any,
