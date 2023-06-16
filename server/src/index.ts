@@ -15,7 +15,6 @@ app.use(bodyParser.json());
 
 // custom middlewares
 app.use("/", authRouter);
-app.use(errorHandler);
 
 // routes
 app.use("/", leaderBoardRouter);
@@ -25,3 +24,5 @@ const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log(`Listening on port`, PORT);
 });
+
+app.use(errorHandler);

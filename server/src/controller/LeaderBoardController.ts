@@ -5,6 +5,7 @@ import { UserModel } from "../githubApi/ghUserDb";
 import dotenv from "dotenv";
 import { ErrorHandler } from "../utils/errorHandler";
 import { LeaderBoard } from "../models/LeaderBoard";
+import { MongoError, MongoServerError } from "mongodb";
 
 dotenv.config();
 
@@ -26,7 +27,7 @@ export const leaderBoardController = async (
 
     res.status(200).json({ message: "board returned" });
   } catch (error) {
-    console.error("Error retrieving users: ", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    console.error("Error creating user: ", error);
+    next(error);
   }
 };

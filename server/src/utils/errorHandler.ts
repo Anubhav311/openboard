@@ -1,8 +1,10 @@
-export class ErrorHandler extends Error {
-  constructor(message: string, statusCode: number) {
-    super(message)
+import { Error as MongooseError } from "mongoose";
 
-    this.statusCode = statusCode
+export class ErrorHandler extends Error {
+  constructor(error: any, statusCode: number) {
+    super(error);
+
+    this.statusCode = statusCode;
   }
-  statusCode: number
+  statusCode: number;
 }
